@@ -1,6 +1,10 @@
-# 模仿美团点餐tabbar联动效果的演示
+# Mimicking Meituan Food Ordering TabBar Linkage Effect Example
 
-## Languages / 语言
+---
+
+## Languages
 
 - [English](README.md)
 - [简体中文](README.zh-CN.md)
+
+
