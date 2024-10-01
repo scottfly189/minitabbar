@@ -1,7 +1,5 @@
 # 模仿美团点餐tabbar联动效果的演示源码
 
----
-
 ## 切换语言
 
 [English](README.md)
