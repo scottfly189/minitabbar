@@ -1,0 +1,195 @@
+<view class="wrap">
+  <view class="top">
+    <view class="title">
+      <text>预订餐</text>
+    </view>
+    <view class="location">
+      <view class="location-top">
+        <view class="company">
+          <t-icon
+            name="star"
+            size="16"
+            color="#999"
+          />
+          <text class="company-name">广州东吴智慧餐饮有限公司</text>
+        </view>
+        <t-icon
+          class="tail"
+          name="swap"
+          size="15"
+          color="#999"
+        />
+      </view>
+      <view class="location-bottom">
+        <t-icon name="location" size="12"></t-icon>
+        <text style="margin-left: 15rpx;">距离您50km</text>
+      </view>
+    </view>
+  </view>
+  <view class="main-content">
+    <view wx:if="{{isBannerShow}}" class="banner">
+      <t-swiper
+        current="{{current}}"
+        autoplay="{{autoplay}}"
+        duration="{{duration}}"
+        interval="{{interval}}"
+        autoplay="{{true}}"
+        loop="{{true}}"
+        navigation="{{ { type: 'dots' } }}"
+        list="{{swiperList}}"
+        bind:click="onBannerTap"
+        height="210rpx"
+      >
+      </t-swiper>
+    </view>
+    <view class="dish-content">
+      <!-- 左侧菜品分类 -->
+      <scroll-view
+        class="dish-content-left"
+        scroll-y
+        scroll-with-animation
+        enable-flex
+        show-scrollbar="{{false}}"
+      >
+        <!--左侧菜品列表-->
+        <view
+          id="{{'group'+item.groupId}}"
+          data-groupid="{{item.groupId}}"
+          wx:for="{{dishList}}"
+          bind:tap="onGroupItemTap"
+          wx:key="index"
+          class="dish-content-left-item {{item.groupId === groupId ? 'dish-content-left-item-active' : ''}}"
+        >
+          <view class="dish-content-left-top">
+            <t-image
+              src="{{item.groupPicUrl}}"
+              width="24"
+              height="24"
+            />
+          </view>
+          <view class="dish-content-left-bottom">
+            <text>{{item.groupName}}</text>
+          </view>
+        </view>
+        <view class="left-footer">
+          <!-- 底部占位 -->
+        </view>
+      </scroll-view>
+      <!-- 右侧菜品列表 -->
+      <scroll-view
+        id="scrollview"
+        class="dish-content-right"
+        scroll-y="{{true}}"
+        scroll-into-view="{{currentRightGroup}}"
+        show-scrollbar="{{false}}"
+        using-sticky
+        scroll-with-animation="{{true}}"
+        enable-flex
+        enhanced
+        bind:scroll="onScroll"
+        bind:touchstart="onTouchStart"
+      >
+        <view class="right-box">
+          <!-- 菜品分类每个组别及菜品明细 -->
+          <block wx:for="{{dishList}}" wx:key="index">
+            <!-- 组别标题 -->
+            <view id="{{'dishgroup_'+item.groupId}}" class="search-title {{fuckFixed ? 'fuck-fixed' : ''}}">{{item.groupName}}</view>
+            <!-- 菜品明细 -->
+            <view
+              wx:for="{{item.list}}"
+              wx:key="index"
+              class="dish-Container"
+              wx:for-item="subItem"
+              wx:for-index="subIndex"
+            >
+              <view class="conver-pic">
+                <t-image
+                  src="{{subItem.coverImgUrl}}"
+                  mode="scaleToFill"
+                  height="290rpx"
+                  style="width:100%;height:100%;"
+                  shape="round"
+                  lazy-load
+                />
+                <t-image
+                  wx:if="{{subItem.dishType === '套餐'}}"
+                  class="dish-group-icon"
+                  src="/assets/images/groupdish.png"
+                  mode="scaleToFill"
+                  height="50rpx"
+                  width="50rpx"
+                  style="--td-image-round-radius:0 5rpx 0 0;"
+                />
+              </view>
+              <view class="dish-item-detail">
+                <view class="dish-title">
+                  {{subItem.name}}
+                </view>
+                <view wx:if="{{subItem.subTitle}}" class="dish-subtitle">
+                  {{subItem.subTitle}}
+                </view>
+                <view class="tag">
+                  <t-tag
+                    size="small"
+                    variant="outline"
+                    theme="danger"
+                  >限时特价
+                  </t-tag>
+                  <t-tag
+                    size="small"
+                    variant="outline"
+                    theme="danger"
+                  >新品推荐
+                  </t-tag>
+                </view>
+                <view class="dish-price-box">
+                  <view class="user-price">
+                    <view class="dish-price-account">
+                      ￥{{subItem.vipPrice}}
+                    </view>
+                    <view class="dish-price-normal">
+                      ￥{{subItem.normalPrice}}
+                    </view>
+                  </view>
+                  <block wx:if="{{subItem.dishType === '套餐'}}">
+                    <view class="dish-price-btn">
+                      <t-button size="small" shape="round">选规格
+                      </t-button>
+                    </view>
+                  </block>
+                  <block wx:if="{{subItem.dishType === '单品'}}">
+                    <view class="dish-price-btn">
+                      <t-button size="small" shape="round">立即购买
+                      </t-button>
+                    </view>
+                  </block>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+        <view class="right-footer">
+          <!-- 底部占位 -->
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 购物车 -->
+  <view class="cart">
+    <view class="left">
+      <view class="left-top">
+        <text>尊享优惠券</text>
+      </view>
+      <view class="left-bottom">
+        <text>0 张可用</text>
+      </view>
+    </view>
+    <view class="right">
+      <view class="shop-icon">
+        <t-icon name="tea" size="64rpx" />
+      </view>
+      <view class="shop-item">暂无菜品，请先选购</view>
+    </view>
+  </view>
+</view>
+

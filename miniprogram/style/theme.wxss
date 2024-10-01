@@ -1,0 +1,76 @@
+page {
+  --font-normal-size: 28rpx;
+  --main-theme-primary-color: #d62e2a;
+  /* 颜色 */
+  --td-brand-color: var(--main-theme-primary-color, #d62e2a);
+  --td-warning-color: yellow;
+  --td-error-color: red;
+  --td-success-color: green;
+  /* 字体 */
+  --szs-font-size-base: var(--font-normal-size);
+  --szs-font-size-lg: 32rpx;
+  --szs-font-size-xl: 36rpx;
+  --szs-font-size-small: 24rpx;
+  --szs-font-default-color: #333333;
+  --szs-font-secondary-color: #bbb;
+  --szs-font-subtitle-color:#636363;
+  --szs-font-subtitle-small-color:#a0a0a0;
+}
+
+/* 主题定制 */
+.t-input {
+  --td-input-placeholder-text-color: #bbbbbb;
+  --td-input-text-color: #333333;
+}
+
+.t-tab-bar {
+  --td-tab-bar-color: #cccccc;
+  --td-tab-bar-active-color: white;
+  --td-tab-bar-bg-color: #d62e2a;
+}
+
+.t-tab-bar-item__text--small {
+  font-size: 28rpx !important;
+  line-height: 50rpx !important;
+}
+
+.t-cascader {
+  --td-cascader-active-color: #d62e2a;
+}
+
+.t-switch {
+  --td-switch-checked-color: #34c759;
+}
+
+.t-button {
+  --td-button-font-weight: 500;
+  --td-button-medium-font-size: 32rpx;
+  --td-button-default-color: #fff;
+  --td-button-default-bg-color: #d62e2a;
+  --td-button-default-border-color: #d62e2a;
+  --td-button-default-disabled-color: #fff;
+  --td-button-default-disabled-bg: #cccccc;
+  --td-button-default-disabled-border-color: #cccccc;
+  --td-button-default-active-bg-color: #d62e2a;
+  --td-button-default-active-border-color: #d62e2a;
+}
+
+.t-textarea {
+  --td-textarea-placeholder-color: #bbb;
+}
+
+.t-checkbox {
+  --td-checkbox-icon-checked-color: #d62e2a;
+}
+
+.dialog__button-confirm {
+  color: #d62e2a !important;
+}
+
+.dialog__button-cancel {
+  color: #aeb3b7 !important;
+}
+
+.tab-bar-ext {
+  z-index: 100;
+}

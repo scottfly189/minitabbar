@@ -1,0 +1,25 @@
+{
+  "name": "@tencent/tdesign-miniprogram-starter-retail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js, ts}": "eslint --cache --fix",
+    "*.{js,ts,wxml,html,json,css,less}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "tdesign-miniprogram": "^1.6.1"
+  }
+}
