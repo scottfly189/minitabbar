@@ -44,6 +44,8 @@ Recently, while working on a restaurant ordering system and designing a UI to si
 
 - Uses WeChat base library version 3.5.8, but can work with lower versions as well;
 
+- If this source code is helpful to you, please give it a star;
+
 ## Demo
 
 ![](./doc/demo.gif "Demo")
