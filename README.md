@@ -1,4 +1,4 @@
-# Demo Code for Mimicking Meituan Food Ordering TabBar Linkage Effect
+# Demo Code for MiniProgram Meituan Food Ordering TabBar Linkage Effect
 
 ## Select Language
 
